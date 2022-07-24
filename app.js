@@ -39,8 +39,8 @@ function renderRandomObjectFromSchema(testSchema) {
 function generateObjectFromSchema(schema) {
   if (!schema) { return }
 
-  const parsedData = {};
-  const definitionObj = {};
+  const generatedObject = {};
+  const definitionObject = {};
 
   if ((schema.hasOwnProperty('type') || schema.hasOwnProperty('enum') || schema.hasOwnProperty('anyOf'))
     && schema['properties'] === undefined) {
@@ -52,8 +52,8 @@ function generateObjectFromSchema(schema) {
 
     definitionsItems.forEach(definition => {
       Object.keys(schema['definitions'][definitionsItems]['properties']).forEach((item) => {
-        definitionObj[definition] = {
-          ...definitionObj[definition],
+        definitionObject[definition] = {
+          ...definitionObject[definition],
           [item]: generateObjectFromSchema(schema['definitions'][definition]['properties'][item])};
       });
     });
@@ -61,15 +61,15 @@ function generateObjectFromSchema(schema) {
 
   if (schema.hasOwnProperty('properties')) {
     Object.keys(schema['properties']).forEach((property) => {
-      parsedData[property] = generateObjectFromSchema(schema['properties'][property]);
+      generatedObject[property] = generateObjectFromSchema(schema['properties'][property]);
 
-      if (definitionObj.hasOwnProperty(property)) {
-        parsedData[property] = definitionObj[property];
+      if (definitionObject.hasOwnProperty(property)) {
+        generatedObject[property] = definitionObject[property];
       }
     });
   }
 
-  return parsedData;
+  return generatedObject;
 }
 
 function applySchemaTypeRule(currentObject) {
