@@ -1,13 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-Hello Сorezoid
+  <header class="header">
+    <h1>Test task solution</h1>
+  </header>
+  <main class="main">
+    <button class="generate-object-button" title="Generate random object from test schema">Generate new random object</button>
+    <div class="main__content">
+      <div class="test-schema-container">
+        <h2>Test schema</h2>
+        <pre class="test-schema"></pre>
+      </div>
+      <div class="random-object-container">
+        <h2>Random object from schema</h2>
+        <pre class="random-object"></pre>
+      </div>
+    </div>
+  </main>
 <script type="module" src="app.js"></script>
 </body>
 </html>

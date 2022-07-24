@@ -5,3 +5,5 @@
 
 - [JSON-schema](https://drive.google.com/file/d/1crLJ-PPCuLFmMjWA6vTp8A9jsZKz-NKR/view?usp=sharing) на основе, которой необходимо сгенерировать объекты.
 
+ ### Solution:
+- [DEMO LINK](https://andrii-pinchuk.github.io/test-task-soft-eng)
