@@ -64,7 +64,11 @@ function generateObjectFromSchema(schema) {
       generatedObject[property] = generateObjectFromSchema(schema['properties'][property]);
 
       if (definitionObject.hasOwnProperty(property)) {
-        generatedObject[property] = [definitionObject[property]];
+        if (Array.isArray(generatedObject[property])) {
+          generatedObject[property] = [definitionObject[property]]
+        } else {
+          generatedObject[property] = definitionObject[property];
+        }
       }
     });
   }
